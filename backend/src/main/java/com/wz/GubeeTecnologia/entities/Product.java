@@ -29,6 +29,8 @@ public class Product implements Serializable {
 	
 	@Column(columnDefinition = "TEXT")
 	private String description;
+	
+	private Double price;
 
 	@ManyToMany
 	@JoinTable(name = "tb_product_stack", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "stack_id"))
