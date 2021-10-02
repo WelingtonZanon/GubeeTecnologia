@@ -12,9 +12,11 @@ const Home = () => {
           com marketplaces. Comece agora mesmo integrando com os principais
           marketplaces do mercado.
         </p>
-        <Link to="/products">
-          <ButtonIcon />
-        </Link>
+        <div>
+          <Link to="/products">
+            <ButtonIcon text="INICIE AGORA A SUA BUSCA" />
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -22,5 +22,5 @@ public class Stack implements Serializable{
 	private Long id;
 	@Column(unique = true)
 	private String name;
-
+	
 }

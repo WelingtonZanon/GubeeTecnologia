@@ -21,6 +21,7 @@ public class ProductDTO implements Serializable{
 	private String name;
 	private String description;	
 	private Double price;
+	private String imgUrl;
 	List<StackDTO> stacks = new ArrayList<>();
 	List<TargetMarketDTO> targetMarkets = new ArrayList<>();
 	
@@ -29,6 +30,7 @@ public class ProductDTO implements Serializable{
 		name = entity.getName();
 		description = entity.getDescription();
 		price = entity.getPrice();
+		imgUrl = entity.getImgUrl();
 	}
 	
 	public ProductDTO(Product entity, Set<Stack> stacks, Set<TargetMarket> targetMarkets) {

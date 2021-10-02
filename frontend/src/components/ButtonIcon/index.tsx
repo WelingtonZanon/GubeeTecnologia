@@ -1,12 +1,14 @@
-import "./styles.css"
+import './styles.css';
 
-const ButtonIcon = ()=> {
+type Props = {
+  text: string;
+};
 
-    return (
-        <button className="btn btn-primary btn-icon">
-            <h6>INICIE AGORA A SUA BUSCA</h6>
-        </button>
-        
-    );
-}
+const ButtonIcon = ({ text }: Props) => {
+  return (
+    <button className="btn btn-primary">
+      <h6>{text}</h6>
+    </button>
+  );
+};
 export default ButtonIcon;

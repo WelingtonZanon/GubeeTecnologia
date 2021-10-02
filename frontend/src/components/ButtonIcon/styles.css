@@ -1,4 +1,19 @@
-.btn-icon {
-    width: 260px;
-    height: 50px;
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.btn h6{
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 8px;
+}
+
+@media (min-width: 576px){
+    .btn h6{
+        font-size: 20px;
+    }
 }
