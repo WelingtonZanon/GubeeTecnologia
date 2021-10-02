@@ -1,6 +1,6 @@
-INSERT INTO TB_PRODUCT (NAME, DESCRIPTION, PRICE) VALUES ('Gubee Integrador', 'Ferramenta de integração para marketplaces', 700.00);
-INSERT INTO TB_PRODUCT (NAME, DESCRIPTION, PRICE) VALUES ('Gubee Fretes', 'Ferramenta para gestão e calculo de fretes', 900.00);
-INSERT INTO TB_PRODUCT (NAME, DESCRIPTION, PRICE) VALUES ('Gubee AntiFraude', 'Ferramenta especialistas em detecção e prevenção à fraude', 1200.00);
+INSERT INTO TB_PRODUCT (NAME, DESCRIPTION, PRICE, IMG_URL) VALUES ('Gubee Integrador', 'Ferramenta de integração para marketplaces', 700.00, 'https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/1-big.jpg');
+INSERT INTO TB_PRODUCT (NAME, DESCRIPTION, PRICE, IMG_URL) VALUES ('Gubee Fretes', 'Ferramenta para gestão e calculo de fretes', 900.00, 'https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/2-big.jpg');
+INSERT INTO TB_PRODUCT (NAME, DESCRIPTION, PRICE, IMG_URL) VALUES ('Gubee AntiFraude', 'Ferramenta especialistas em detecção e prevenção à fraude', 1200.00, 'https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/3-big.jpg');
 
 INSERT INTO TB_TARGET_MARKET (NAME) VALUES ('Ecommerce');
 INSERT INTO TB_TARGET_MARKET (NAME) VALUES ('ERP');

@@ -1,5 +1,4 @@
 import './styles.css';
-import ProductImg from 'assets/img/product.png';
 import ProductPrice from 'components/ProductPrice';
 import { Product } from 'types/product';
 
