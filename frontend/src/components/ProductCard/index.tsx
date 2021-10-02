@@ -1,15 +1,16 @@
 import './styles.css';
 import ProductImg from 'assets/img/product.png';
+import ProductPrice from 'components/ProductPrice';
 
 const ProductCard = () => {
   return (
-    <div>
-      <div>
+    <div className="base-card product-card">
+      <div className="card-top-container">
         <img src={ProductImg} alt="Imagen do produto"></img>
       </div>
-      <div>
+      <div className="card-bottom-container">
         <h6>Nome do produto</h6>
-        <p>2345.67</p>
+        <ProductPrice />
       </div>
     </div>
   );
