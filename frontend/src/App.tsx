@@ -1,9 +1,9 @@
-
-function App() {
+import './assets/styles/custom.scss';
+import 'App.css'
+import Catalog from 'pages/Catalog';
+const App = () => {
   return (
-    <div>
-      <h1>Olá mundo!</h1>
-    </div>
+   <Catalog />
   );
 }
 

@@ -1,0 +1,30 @@
+.main-nav{
+    min-height: 70px;
+    padding-left: 40px;
+    background-image: url("/src/assets/img/bg-header.png");
+}
+
+.nav-logo-text,
+.nav-logo-text:hover {
+  color: #fff;
+}
+
+.main-menu {
+  display: flex;
+  font-size: 18px;
+  width: 380px;
+  justify-content: space-between;
+}
+
+.main-menu a{
+    color: #fff;
+}
+
+.main-menu a:hover{
+    color: #fffc00;
+}
+
+.main-menu a.active {
+    color: #fffc00;
+    font-weight: bold;
+}
