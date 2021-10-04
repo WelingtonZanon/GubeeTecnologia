@@ -25,7 +25,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	 * "(LOWER(obj.name) LIKE LOWER(CONCAT('%',:name,'%')))")
 	 */
 	
-	/*
+	/*Postgres ->
 	 * @Query("SELECT DISTINCT obj FROM Product obj JOIN obj.stacks st WHERE " +
 	 * "(COALESCE(:stacks) IS NULL OR st IN :stacks) AND " +
 	 * "(LOWER(obj.name) LIKE LOWER(CONCAT('%',:name,'%')))")
