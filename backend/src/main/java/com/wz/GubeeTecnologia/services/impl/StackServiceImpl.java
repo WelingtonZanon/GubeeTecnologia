@@ -22,7 +22,7 @@ public class StackServiceImpl implements StackService{
 	@Transactional(readOnly = true)
 	public List<StackDTO> findAll(){
 		List<Stack> list = repository.findAll();
-		return list.stream().map(x -> new StackDTO()).collect(Collectors.toList());
+		return list.stream().map(x -> new StackDTO(x)).collect(Collectors.toList());
 	}
 
 }

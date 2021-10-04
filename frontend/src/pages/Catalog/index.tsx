@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Pagination from 'components/Pagination';
 import ProductCard from 'components/ProductCard';
+import ProductFilter from 'components/ProductFilter';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from 'types/product';
@@ -35,6 +36,7 @@ const Catalog = () => {
     <div className="container my-4 catalog-container">
       <div className="row catalog-title-container">
         <h1>Catálogo de Produtos</h1>
+        <ProductFilter/>
       </div>
       <div className="row">
         {page?.content.map((product) => (

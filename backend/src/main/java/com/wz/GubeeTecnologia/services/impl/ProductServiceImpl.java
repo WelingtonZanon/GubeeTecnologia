@@ -1,5 +1,7 @@
 package com.wz.GubeeTecnologia.services.impl;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -39,8 +41,9 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public Page<ProductDTO> findAll(Pageable pageable) {
-		Page<Product> page = repository.findAll(pageable);
+	public Page<ProductDTO> findAll(Pageable pageable, Long stackId, String name) {
+		List<Stack> stacks = (stackId ==0) ? null : Arrays.asList(stackRepository.getById(stackId));
+		Page<Product> page = repository.findSearch(pageable, stacks, name);
 		repository.findAllAdd(page.stream().collect(Collectors.toList()));
 		return page.map(x -> new ProductDTO(x, x.getStacks(), x.getTargetMarket()));
 	}
