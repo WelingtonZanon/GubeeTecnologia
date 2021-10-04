@@ -12,12 +12,12 @@ import './styles.css';
 const Catalog = () => {
   const [page, setPage] = useState<SpringPage<Product>>();
 
-  useEffect(() => {
+  const getProducts = (pageNumber: number) => {
     const params: AxiosParams = {
       method: 'GET',
       url: `${BASE_URL}/products`,
       params: {
-        page: 0,
+        page: pageNumber,
         size: 12,
       },
     };
@@ -25,6 +25,10 @@ const Catalog = () => {
     axios(params).then((response) => {
       setPage(response.data);
     });
+  };
+
+  useEffect(() => {
+    getProducts(0);
   }, []);
 
   return (
@@ -41,7 +45,11 @@ const Catalog = () => {
           </div>
         ))}
         <div className="row">
-          <Pagination />
+          <Pagination
+            pageCount={page ? page.totalPages : 0}
+            range={3}
+            onChange={getProducts}
+          />
         </div>
       </div>
     </div>

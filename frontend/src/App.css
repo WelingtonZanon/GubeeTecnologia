@@ -20,3 +20,9 @@ a, a:hover {
     box-shadow: 0xp 4px 20px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
