@@ -99,27 +99,27 @@
 }
 
 @media (min-width: 1200px) {
-    .name-price-container {
-        display: block;
-      }
+  .name-price-container {
+    display: block;
+  }
 
-      .img-container img {
-        width: 280;
-        height: auto;
-      }
+  .img-container img {
+    width: 280;
+    height: auto;
+  }
 
-      .description-container {
-          min-height: 265px;
-      }
+  .description-container {
+    min-height: 265px;
+  }
 }
 
 @media (min-width: 1400px) {
-      .img-container img {
-        width: 480;
-        height: auto;
-      }
+  .img-container img {
+    width: 480;
+    height: auto;
+  }
 
-      .description-container {
-          min-height: 440px;
-      }
+  .description-container {
+    min-height: 440px;
+  }
 }

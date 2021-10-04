@@ -6,6 +6,7 @@ import { Product } from 'types/product';
 import axios from 'axios';
 import { BASE_URL } from 'util/requests';
 import { useEffect, useState } from 'react';
+import StackBadge from 'components/StackBadge';
 
 type UrlParams = {
   productId: string;
@@ -17,8 +18,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState<Product>();
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/products/${productId}`)
-      .then((response) => {
+    axios.get(`${BASE_URL}/products/${productId}`).then((response) => {
       setProduct(response.data);
     });
   }, [productId]);
@@ -46,6 +46,17 @@ const ProductDetails = () => {
             <div className="description-container">
               <h2>Descrição do produto</h2>
               <p>{product?.description}</p>
+
+              <div className="container my-4 tecnologi-container-badge">
+                <div className="row">
+                {product?.stacks.map((stack) => (
+                  <div className="col-sm-6 col-lg-4 col-xl-3  ">
+                    <StackBadge name={stack.name} key={stack.id} />
+                  </div>
+                ))}
+                </div>
+                
+              </div>
             </div>
           </div>
         </div>
