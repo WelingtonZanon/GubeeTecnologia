@@ -41,9 +41,10 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public Page<ProductDTO> findAll(Pageable pageable, Long stackId, String name) {
+	public Page<ProductDTO> findAll(Pageable pageable, Long stackId,Long targetMarketId, String name) {
 		List<Stack> stacks = (stackId ==0) ? null : Arrays.asList(stackRepository.getById(stackId));
-		Page<Product> page = repository.findSearch(pageable, stacks, name);
+		List<TargetMarket> targetMarkets = (targetMarketId ==0) ? null : Arrays.asList(targetMarketRepository.getById(targetMarketId));
+		Page<Product> page = repository.findSearch(pageable, stacks, targetMarkets, name);
 		repository.findAllAdd(page.stream().collect(Collectors.toList()));
 		return page.map(x -> new ProductDTO(x, x.getStacks(), x.getTargetMarket()));
 	}

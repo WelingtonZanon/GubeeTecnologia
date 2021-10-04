@@ -7,7 +7,7 @@ import com.wz.GubeeTecnologia.dto.ProductDTO;
 
 public interface ProductService {
 
-	Page<ProductDTO> findAll(Pageable pageable, Long categoryId, String name);
+	Page<ProductDTO> findAll(Pageable pageable, Long categoryId, Long targetMarketId, String name);
 	
 	ProductDTO findByID(Long id);
 	
