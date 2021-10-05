@@ -1,4 +1,4 @@
-export type targetMarkets = {
+export type TargetMarkets = {
   id: number;
   name: string;
 };

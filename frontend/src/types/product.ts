@@ -1,5 +1,5 @@
 import { Stack } from './stack';
-import { targetMarkets } from './targetMarkets';
+import { TargetMarkets } from './targetMarkets';
 
 export type Product = {
   id: number;
@@ -8,5 +8,5 @@ export type Product = {
   price: number;
   imgUrl: string;
   stacks: Stack[];
-  targetMarkets: targetMarkets[];
+  targetMarkets: TargetMarkets[];
 };

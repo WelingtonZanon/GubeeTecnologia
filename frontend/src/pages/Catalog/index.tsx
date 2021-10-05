@@ -1,42 +1,62 @@
-import axios from 'axios';
+import { AxiosRequestConfig } from 'axios';
 import Pagination from 'components/Pagination';
 import ProductCard from 'components/ProductCard';
-import ProductFilter from 'components/ProductFilter';
-import { useEffect, useState } from 'react';
+import ProductFilter, { ProductFilterData } from 'components/ProductFilter';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from 'types/product';
-import { AxiosParams } from 'types/vendor/axios';
 import { SpringPage } from 'types/vendor/spring';
-import { BASE_URL } from 'util/requests';
+import { requestBackend } from 'util/requests';
 import './styles.css';
+
+type ControlComponentsData = {
+  activePage: number;
+  filterData : ProductFilterData;
+}
 
 const Catalog = () => {
   const [page, setPage] = useState<SpringPage<Product>>();
 
-  const getProducts = (pageNumber: number) => {
-    const params: AxiosParams = {
+  const [controlComponentsData, setControlComponentsData] = useState<ControlComponentsData>({
+    activePage: 0,
+    filterData: { name:'', stack: null, targetMarket: null},
+  });
+
+  const handlePageChange = (pageNumber: number) => {
+    setControlComponentsData({ activePage: pageNumber, filterData: controlComponentsData.filterData });
+  };
+
+  const handleSubmitFilter =(data: ProductFilterData) => {
+    setControlComponentsData({ activePage: 0, filterData: data }); 
+  }
+
+  const getProducts = useCallback(() => {
+    const config: AxiosRequestConfig = {
       method: 'GET',
-      url: `${BASE_URL}/products`,
+      url: '/products',
       params: {
-        page: pageNumber,
+        page: controlComponentsData.activePage,
         size: 12,
+        name: controlComponentsData.filterData.name,
+        stackId: controlComponentsData.filterData.stack?.id,
+        targetMarketId: controlComponentsData.filterData.targetMarket?.id
       },
     };
 
-    axios(params).then((response) => {
+    requestBackend(config).then((response) => {
       setPage(response.data);
     });
-  };
+  }, [controlComponentsData]);
 
   useEffect(() => {
-    getProducts(0);
-  }, []);
+    getProducts();
+  }, [getProducts]);
 
   return (
     <div className="container my-4 catalog-container">
       <div className="row catalog-title-container">
         <h1>Catálogo de Produtos</h1>
-        <ProductFilter/>
+        <ProductFilter onSubmitFilter={handleSubmitFilter} />
       </div>
       <div className="row">
         {page?.content.map((product) => (
@@ -48,9 +68,10 @@ const Catalog = () => {
         ))}
         <div className="row">
           <Pagination
+            forcePage={page?.number}
             pageCount={page ? page.totalPages : 0}
             range={3}
-            onChange={getProducts}
+            onChange={handlePageChange}
           />
         </div>
       </div>
