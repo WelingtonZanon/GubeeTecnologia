@@ -1,11 +1,11 @@
 import './styles.css';
 import { ReactComponent as SearchIcon } from 'assets/img/search-icon.svg';
 import { Stack } from 'types/stack';
-import { Controller, useForm } from 'react-hook-form';
 import Select from 'react-select';
 import { useEffect, useState } from 'react';
 import { requestBackend } from 'util/requests';
 import { TargetMarkets } from 'types/targetMarkets';
+import { Controller, useForm } from 'react-hook-form';
 
 export type ProductFilterData = {
   name: string;
