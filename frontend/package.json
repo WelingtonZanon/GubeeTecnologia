@@ -14,7 +14,6 @@
     "@types/react-select": "^5.0.1",
     "axios": "^0.22.0",
     "bootstrap": "^5.1.1",
-    "node-sass": "^4.14.1",
     "react": "^17.0.2",
     "react-currency-input-field": "^3.5.1",
     "react-dom": "^17.0.2",
@@ -54,6 +53,8 @@
   },
   "devDependencies": {
     "@types/react-paginate": "^7.1.1",
-    "sass": "^1.42.1"
+    "sass": "^1.42.1",
+    "sass-loader": "^12.1.0",
+    "webpack": "^5.57.1"
   }
 }
